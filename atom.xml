@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sherwood-zheng</title>
+  <subtitle>always want to know more</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-08-09T02:59:14.806Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>sherwood-zheng</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>faster RCNN</title>
+    <link href="http://yoursite.com/2016/08/09/faster-RCNN/"/>
+    <id>http://yoursite.com/2016/08/09/faster-RCNN/</id>
+    <published>2016-08-09T01:55:47.000Z</published>
+    <updated>2016-08-09T02:59:14.806Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Faster-RCNN&quot;&gt;&lt;a href=&quot;#Faster-RCNN&quot; class=&quot;headerlink&quot; title=&quot;Faster RCNN&quot;&gt;&lt;/a&gt;Faster RCNN&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1.前言&quot;&gt;&lt;/a&gt;1.前言&lt;/h2&gt;&lt;p&gt;　　faster-rcnn主要解决的问题就是：为什么依然需要slective search?首先我们需要去理解的是，为什么我们需要在已经有RCNN,SPP-NET,fast_RCNN的基础智商，我们还需要提出一套全新的region　proposal network，主要一个原因就是selective search是在cpu上面跑出来的，而普通的神经网络是在GPU上面跑，通过这样的转换之下，使得原来从region proposal到之后的提取特征，然后再进行分类，或者是bounding box的回归，都大大的减慢了速度，为此，fast_RCNN就是在这个基础上提出来的。&lt;/p&gt;
+&lt;h2 id=&quot;2-region-proposal-network&quot;&gt;&lt;a href=&quot;#2-region-proposal-network&quot; class=&quot;headerlink&quot; title=&quot;2.region proposal network&quot;&gt;&lt;/a&gt;2.region proposal network&lt;/h2&gt;&lt;p&gt;　　region proposal network首先输入的是一般卷积神经网络的最后层的feature map，然后输出一系列的方形的region　中心，长宽（也就是四个数）以及是否为物体的置信度（是物体的概率，不是物体的概率）如下图所示&lt;br&gt;&lt;img src=&quot;http://o8ssj1mf6.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160809102115.png&quot; alt=&quot;region proposal network&quot;&gt;&lt;br&gt;详细的解释一下，首先，我们输入一张图片(论文里面使用的是1000x600)通过一般的卷积神经网络（上图左下，同时，图片变成了60x40）得到一个feature map 我们通过一个3x3的滑动窗口，窗口每一次滑动，都产生了一个256-d的向量，这个滑动窗口对应的我们提出了k个anchor boxes，论文里面使用的是九个，为什么是九个？因为要产生不同尺度不同比例的的anchor boxes，具体的来说，就是128 256 512以及长宽比，1:1 2:1 1:2然后提出这些之后，这个256-d的向量输入到两个网络，一个是置信度，另外一个就是bounding-box的坐标，长宽。&lt;/p&gt;
+&lt;h2 id=&quot;３-faster-rcnn&quot;&gt;&lt;a href=&quot;#３-faster-rcnn&quot; class=&quot;headerlink&quot; title=&quot;３.faster-rcnn&quot;&gt;&lt;/a&gt;３.faster-rcnn&lt;/h2&gt;&lt;p&gt;最后，我们使用和fast-rcnn一样的办法，也就是，在前面的fast_RCNN里面，我们使用了region pooling　region pooling就是，我们得到了一个region proposal(在feature map上)然后，我们对这个特殊的region　进行region　pooling 比如说，我们要得到一个100-d的向量，我们的feature 是60x40那我们就把我们的pooling 窗口大小设置为6x4然后取这个里面的最大值即可。最后然后再输入到分类器里面去，（一般都是svm)最后的结构如下图所示：&lt;br&gt;&lt;img src=&quot;http://o8ssj1mf6.bkt.clouddn.com/fastrcnn-model.png&quot; alt=&quot;fast_RCNN&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Faster-RCNN&quot;&gt;&lt;a href=&quot;#Faster-RCNN&quot; class=&quot;headerlink&quot; title=&quot;Faster RCNN&quot;&gt;&lt;/a&gt;Faster RCNN&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; cl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/06/15/hello-world/"/>
+    <id>http://yoursite.com/2016/06/15/hello-world/</id>
+    <published>2016-06-15T04:47:01.202Z</published>
+    <updated>2016-06-15T04:47:01.202Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
