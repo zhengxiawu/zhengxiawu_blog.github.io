@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-24T08:30:30.855Z</updated>
+  <updated>2016-08-24T08:32:20.567Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/08/24/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B01/"/>
     <id>http://yoursite.com/2016/08/24/概率图模型01/</id>
     <published>2016-08-24T07:53:48.000Z</published>
-    <updated>2016-08-24T08:30:30.855Z</updated>
+    <updated>2016-08-24T08:32:20.567Z</updated>
     
     <content type="html">&lt;h1 id=&quot;概率图模型01-简介&quot;&gt;&lt;a href=&quot;#概率图模型01-简介&quot; class=&quot;headerlink&quot; title=&quot;概率图模型01　简介&quot;&gt;&lt;/a&gt;概率图模型01　简介&lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近开始看《模式识别与机器学习》的时候，遇到了一些障碍，所以开始学习概率图模型，为了更好的充电以及激励自己，开始写这个博客也主要是想开始正统的学习一下，里面主要跟的是eric xing的概率图模型的课程，希望自己可以坚持翻译完里面的课堂笔记，以及完成作业。：）&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;p&gt;为了解决上面的问题，我们至少需要三个步骤来进行建模：选择模型的变量，选择模型的结构，选择相关的概率，我们来对此做一个例子：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;选择变量：我们选择$X_n$来作为我们观察到的输出第n次投掷，$Y_n$来表示第n次的色子是否被换成作弊的色子&lt;/li&gt;
-&lt;li&gt;选择结构：在这个例子当中，问题很明确，我们选择一个合适的模型去表示它（图１）。做了这样的一个假设。前面一次的色子选择情况已定成都上影响了后面。$Y&lt;em&gt;t\rightarrow Y&lt;/em&gt;{t+1}$。另外一个方面需要表达的就是，选择哪个色子，也影响了我们我们最后掷出来的点数$Y_t\rightarrow X_t$&lt;/li&gt;
+&lt;li&gt;选择结构：在这个例子当中，问题很明确，我们选择一个合适的模型去表示它（图１）。做了这样的一个假设。前面一次的色子选择情况已定成都上影响了后面。$Y&lt;em&gt;t \rightarrow Y&lt;/em&gt;{t+1}$。另外一个方面需要表达的就是，选择哪个色子，也影响了我们我们最后掷出来的点数$Y_t \rightarrow X_t$&lt;/li&gt;
 &lt;li&gt;选择概率：我们选择和上述描述向符合的概率。当选择具体的色子之后，每个点数的概率，以及选择正常色子还是作弊色子的概率，我们假设在所有的时间点上（$P(Y_{t+1}|Y_t)，P(X_t|Y_t)$）的概率分布都相同。最后的输入模型如下图所示。这个模型也被称之为隐马尔科夫模型。&lt;br&gt;&lt;img src=&quot;http://o8ssj1mf6.bkt.clouddn.com/20160824.PNG&quot; alt=&quot;赌场模型&quot;&gt;&lt;center&gt;图１　赌场隐马尔科夫模型&lt;/center&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
