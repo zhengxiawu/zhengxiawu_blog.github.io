@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-24T08:24:03.190Z</updated>
+  <updated>2016-08-24T08:26:53.541Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://yoursite.com/2016/08/24/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B01/"/>
     <id>http://yoursite.com/2016/08/24/概率图模型01/</id>
     <published>2016-08-24T07:53:48.000Z</published>
-    <updated>2016-08-24T08:24:03.190Z</updated>
+    <updated>2016-08-24T08:26:53.541Z</updated>
     
     <content type="html">&lt;h1 id=&quot;概率图模型01-简介&quot;&gt;&lt;a href=&quot;#概率图模型01-简介&quot; class=&quot;headerlink&quot; title=&quot;概率图模型01　简介&quot;&gt;&lt;/a&gt;概率图模型01　简介&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近开始看《模式识别与机器学习》的时候，遇到了一些障碍，所以开始学习概率图模型，为了更好的充电以&lt;br&gt;及激励自己，开始写这个博客也主要是想开始正统的学习一下，里面主要跟的是eric xing的概率图模型的课&lt;br&gt;程，希望自己可以坚持翻译完里面的课堂笔记，以及完成作业。：）&lt;/p&gt;
-&lt;h2 id=&quot;课堂回顾&quot;&gt;&lt;a href=&quot;#课堂回顾&quot; class=&quot;headerlink&quot; title=&quot;课堂回顾&quot;&gt;&lt;/a&gt;课堂回顾&lt;/h2&gt;&lt;p&gt;在这节课当中，我们主要介绍了贝叶斯网络的概念，以及贝叶斯网络如何能够表现出随机变量之间的内在独立&lt;br&gt;关系。我们同时还讨论了贝叶斯网络当中的不同的结构，并且它们如何编码不同的随即变量独立信息。最后，&lt;br&gt;我们通过稳固性以及完备性，来分析贝叶斯网络与概率模型的等价关系。&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近开始看《模式识别与机器学习》的时候，遇到了一些障碍，所以开始学习概率图模型，为了更好的充电以及激励自己，开始写这个博客也主要是想开始正统的学习一下，里面主要跟的是eric xing的概率图模型的课程，希望自己可以坚持翻译完里面的课堂笔记，以及完成作业。：）&lt;/p&gt;
+&lt;h2 id=&quot;课堂回顾&quot;&gt;&lt;a href=&quot;#课堂回顾&quot; class=&quot;headerlink&quot; title=&quot;课堂回顾&quot;&gt;&lt;/a&gt;课堂回顾&lt;/h2&gt;&lt;p&gt;在这节课当中，我们主要介绍了贝叶斯网络的概念，以及贝叶斯网络如何能够表现出随机变量之间的内在独立关系。我们同时还讨论了贝叶斯网络当中的不同的结构，并且它们如何编码不同的随即变量独立信息。最后，我们通过稳固性以及完备性，来分析贝叶斯网络与概率模型的等价关系。&lt;/p&gt;
 &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;该课程中使用的概念如下&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -36,7 +36,7 @@
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;表示多元随机分布&quot;&gt;&lt;a href=&quot;#表示多元随机分布&quot; class=&quot;headerlink&quot; title=&quot;表示多元随机分布&quot;&gt;&lt;/a&gt;表示多元随机分布&lt;/h2&gt;&lt;p&gt;概率图模型主要用来做什么?我们可以看这么一个式子：&lt;/p&gt;
-&lt;p&gt;$$P(X_1,X_2,…X_n)\qquad\qquad(1)$$&lt;br&gt;上面的是一个联合分布概率，一般情况下，我们暂时假设他们都是离散类型的变量（当然也可以是连续的）&lt;br&gt;假如我们要精确的表达出上面的分布，一般情况下可以这么来做，上面的n个变量，我们假设每个变量有两个值&lt;br&gt;在这样的情况下，当我们需要去表达一个具体的概率的时候，我们至少需要$2^n$来表达上面的联合分布概率&lt;br&gt;但是，假如，仅仅是假如，变量之间有一定的关系呢？比如$X_1$与$X_2$是互相独立的，那么我们可以稍微省略一点&lt;br&gt;东西在里面极端情况下，所有的变量都独立，&lt;br&gt;$$P(X_1,X_2,…X_n)=P(X_1)P(X_2)P(X_3)…P(X_n)\qquad\qquad(3)$$&lt;br&gt;那么我们的复杂度瞬间总原来的$2^n$下降到了$2n$，但是显然大部分情况下实际应用当中，没有这么好的事情存在，&lt;br&gt;这样的模型大大的降低了复杂程度，但是在另外一个方面，表达能力大大的降低了。我们来看看另外一个极端的例子：&lt;br&gt;$$P(X_1,X_2,…X_n)=P(X_1)P(X_2|X_1)P(X_3|X1,X_2)…P(X_n|X_1,X&lt;em&gt;2,…X&lt;/em&gt;{n-1})\qquad\qquad(2)$$&lt;br&gt;上面的这个式子，每一个都是之前的变量都是前面的条件概率，这样的式子，可以表达任何条件独立的情况，假如我们想用&lt;br&gt;(2)来表达(3)，那么也很简单，因为(2)当中如果真正条件独立，必然存在这样的情况$P(X_2|X_1)=P(X_2)$自然就&lt;br&gt;的到了(3),但是这样的情况，又会让式子变得及其复杂，我们的复杂度又回到了原来的情况。一般的式子都是介于这两种&lt;br&gt;极端情况之间，也就是说，里面部分变量互相独立，部分变量有关系。也有变量条件独立。&lt;/p&gt;
+&lt;p&gt;$$P(X_1,X_2,…X_n)\qquad\qquad(1)$$&lt;br&gt;上面的是一个联合分布概率，一般情况下，我们暂时假设他们都是离散类型的变量（当然也可以是连续的）假如我们要精确的表达出上面的分布，一般情况下可以这么来做，上面的n个变量，我们假设每个变量有两个值在这样的情况下，当我们需要去表达一个具体的概率的时候，我们至少需要$2^n$来表达上面的联合分布概率但是，假如，仅仅是假如，变量之间有一定的关系呢？比如$X_1$与$X_2$是互相独立的，那么我们可以稍微省略一点东西在里面极端情况下，所有的变量都独立，&lt;br&gt;$$P(X_1,X_2,…X_n)=P(X_1)P(X_2)P(X_3)…P(X_n)\qquad\qquad(3)$$&lt;br&gt;那么我们的复杂度瞬间总原来的$2^n$下降到了$2n$，但是显然大部分情况下实际应用当中，没有这么好的事情存在，这样的模型大大的降低了复杂程度，但是在另外一个方面，表达能力大大的降低了。我们来看看另外一个极端的例子：&lt;br&gt;$$P(X_1,X_2,…X_n)=P(X_1)P(X_2|X_1)P(X_3|X1,X_2)…P(X_n|X_1,X&lt;em&gt;2,…X&lt;/em&gt;{n-1})\qquad\qquad(2)$$&lt;br&gt;上面的这个式子，每一个都是之前的变量都是前面的条件概率，这样的式子，可以表达任何条件独立的情况，假如我们想用(2)来表达(3)，那么也很简单，因为(2)当中如果真正条件独立，必然存在这样的情况$P(X_2|X_1)=P(X_2)$自然就的到了(3),但是这样的情况，又会让式子变得及其复杂，我们的复杂度又回到了原来的情况。一般的式子都是介于这两种极端情况之间，也就是说，里面部分变量互相独立，部分变量有关系。也有变量条件独立。&lt;/p&gt;
 &lt;p&gt;主要有三个优点&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -45,16 +45,16 @@
 &lt;li&gt;3在概率中一些比较复杂的操作，可以用一些图方法的操作来代替它&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;概率图模型直观描述：作弊的赌场&quot;&gt;&lt;a href=&quot;#概率图模型直观描述：作弊的赌场&quot; class=&quot;headerlink&quot; title=&quot;概率图模型直观描述：作弊的赌场&quot;&gt;&lt;/a&gt;概率图模型直观描述：作弊的赌场&lt;/h2&gt;&lt;p&gt;假设这么一个场景，你去赌场里面赌博，当然你的目的主要为了赢钱，每个人都要下注\$1，来掷一次色子，谁最大的可以&lt;br&gt;赢得\$2。现在想象一下，你玩了很久，然后发现这么一个情况，赌场方面在掷色子的时候，出现6的情况总是很高，高的&lt;br&gt;不同寻常，你觉得色子有问题，或者说，你觉得，在你掷色子的时候，这个色子是一个正常的色子，当赌场方面掷色子的时候&lt;br&gt;这个色子被偷偷换成了作弊的色子。在这样的情况下，你会问三个问题&lt;/p&gt;
+&lt;h2 id=&quot;概率图模型直观描述：作弊的赌场&quot;&gt;&lt;a href=&quot;#概率图模型直观描述：作弊的赌场&quot; class=&quot;headerlink&quot; title=&quot;概率图模型直观描述：作弊的赌场&quot;&gt;&lt;/a&gt;概率图模型直观描述：作弊的赌场&lt;/h2&gt;&lt;p&gt;假设这么一个场景，你去赌场里面赌博，当然你的目的主要为了赢钱，每个人都要下注\$1，来掷一次色子，谁最大的可以赢得\$2。现在想象一下，你玩了很久，然后发现这么一个情况，赌场方面在掷色子的时候，出现6的情况总是很高，高的不同寻常，你觉得色子有问题，或者说，你觉得，在你掷色子的时候，这个色子是一个正常的色子，当赌场方面掷色子的时候这个色子被偷偷换成了作弊的色子。在这样的情况下，你会问三个问题&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;估计&lt;/strong&gt;：在统计学上，假设我们的色子是一个正常的色子，它的序列应该是什么样子的&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;解码&lt;/strong&gt;：当我们得到一个色子之后，哪些部分可能是作弊的色子掷出来的？&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;学习&lt;/strong&gt;：作弊的色子有多么不平衡（比如把掷为6的概率环到了0.5）还有赌场偷偷的换掉色子的概率是多少？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;为了解决上面的问题，我们至少需要三个步骤来进行建模：选择模型的变量，选择模型的结构，选择相关的概率，我们&lt;br&gt;来对此做一个例子：&lt;/p&gt;
+&lt;p&gt;为了解决上面的问题，我们至少需要三个步骤来进行建模：选择模型的变量，选择模型的结构，选择相关的概率，我们来对此做一个例子：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;选择变量：我们选择$X_n$来作为我们观察到的输出第n次投掷，$Y_n$来表示第n次的色子是否被换成作弊的色子&lt;/li&gt;
-&lt;li&gt;选择结构：在这个例子当中，问题很明确，我们选择一个合适的模型去表示它（图１）。做了这样的一个假设。前面&lt;br&gt;一次的色子选择情况已定成都上影响了后面。（$Y&lt;em&gt;t\rightarrow Y&lt;/em&gt;{t+1}$）。另外一个方面需要表达的就是，选择哪个色子，也影响了我们我们最后掷出来的点数($Y_t\rightarrow X_t$)&lt;/li&gt;
+&lt;li&gt;选择结构：在这个例子当中，问题很明确，我们选择一个合适的模型去表示它（图１）。做了这样的一个假设。前面一次的色子选择情况已定成都上影响了后面。（$Y&lt;em&gt;t\rightarrow Y&lt;/em&gt;{t+1}$）。另外一个方面需要表达的就是，选择哪个色子，也影响了我们我们最后掷出来的点数($Y_t\rightarrow X_t$)&lt;/li&gt;
 &lt;li&gt;选择概率：我们选择和上述描述向符合的概率。当选择具体的色子之后，每个点数的概率，以及选择正常色子还是作弊色子的概率，我们假设在所有的时间点上（$P(Y_{t+1}|Y_t)，P(X_t|Y_t)$）的概率分布都相同。最后的输入模型如下图所示。这个模型也被称之为隐马尔科夫模型。&lt;br&gt;&lt;img src=&quot;http://o8ssj1mf6.bkt.clouddn.com/20160824.PNG&quot; alt=&quot;赌场模型&quot;&gt;&lt;center&gt;图１　赌场隐马尔科夫模型&lt;/center&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
